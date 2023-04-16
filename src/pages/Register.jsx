@@ -3,6 +3,7 @@ import { register } from "../router/firebase";
 import { useUserContext } from "../context/UserContext";
 import { useRedirectActiveUser } from "../hooks/useRedirectActiveUser";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const Register = () => {
@@ -18,9 +19,17 @@ const Register = () => {
 
         try {
             const credentialUser = await register({ email, password })
+            Swal.fire({
+                icon: 'success',
+                text: 'User Register Successfully',
+              })
             console.log(credentialUser);
         } catch (error) {
-            console.log(error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Login fails',
+                text: `${error}`
+              })
         }
     }
     return (

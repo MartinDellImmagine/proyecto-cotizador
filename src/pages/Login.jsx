@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { login } from "../router/firebase";
-
+import Swal from "sweetalert2";
 import { useRedirectActiveUser } from "../hooks/useRedirectActiveUser";
 import { useUserContext } from "../context/UserContext";
 import { Link } from "react-router-dom";
@@ -16,12 +16,21 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         console.log('logenado');
-
+        
         try {
             const credentialUser = await login({ email, password })
+
+            Swal.fire({
+                icon: 'success',
+                text: 'Login Success',
+              })
             console.log(credentialUser);
         } catch (error) {
-            console.log(error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Login fails',
+                text: `${error}`
+              })
         }
     }
     return (

@@ -54,7 +54,9 @@ const Historial = () => {
                         </tbody>
                     </table>
                     <div className="d-flex justify-content-end">
-                        <button onClick={handleClick} className="btn btn-danger flex-end">Limpiar el historial</button>
+                        {
+                            historial.length > 0 && <button onClick={handleClick} className="btn btn-danger flex-end">Limpiar el historial</button>
+                        }
                     </div>
                     
                 </div>

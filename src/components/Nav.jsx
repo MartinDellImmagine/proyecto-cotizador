@@ -1,4 +1,19 @@
+
+import { useUserContext } from "../context/UserContext";
+import { logOut } from "../router/firebase";
+
+
+
 const Nav = () => {
+  const { user } = useUserContext();
+  const handleLogout =  async ()=> {
+    try {
+      logOut()
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
@@ -8,9 +23,13 @@ const Nav = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-link" href="/historial">Historial</a>
+              <a className="nav-link" href="/login">Historial</a>
             </div>
+            {
+              user && <button onClick={handleLogout} className="btn btn-danger">Logout</button>
+            }
           </div>
+        
         </div>
       </nav>
 

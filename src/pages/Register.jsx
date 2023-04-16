@@ -10,7 +10,7 @@ const Register = () => {
     const [password, setPassword] = useState("")
 
     const { user } = useUserContext()
-    useRedirectActiveUser(user, "/historial")
+    useRedirectActiveUser(user, "/dashboard")
 
     const handleSubmit = async (e) => {
         e.preventDefault()

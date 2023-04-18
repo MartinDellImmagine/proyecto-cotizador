@@ -4,9 +4,12 @@ import { useFetch } from "../hooks/useFetch"
 import Swal from "sweetalert2";
 
 import Cotizador from "../tools/class.cotizador"
+import { useUserContext } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 const Formulario = ({ costoMetro2, guardarDatos }) => {
-
+    const navigate = useNavigate()
+    const { user } = useUserContext()
     const { data, loading, error } = useFetch("https://6334c678ea0de5318a08cea5.mockapi.io/cotizacion")
 
     const [disabled, setDisabled] = useState(true)
@@ -82,12 +85,21 @@ const Formulario = ({ costoMetro2, guardarDatos }) => {
     }
 
     const handleClick = () => {
-        Swal.fire({
-            title: 'Datos guardados con éxito',
-            icon: 'success',
-        }),
-            guardarDatos(datos),
-            setDisabled(true)
+        if (user) {
+            Swal.fire({
+                title: 'Datos guardados con éxito',
+                icon: 'success',
+            }),
+                guardarDatos(datos),
+                setDisabled(true)
+        }else{
+            Swal.fire({
+                title: 'Debes logearte para guardar tus datos.',
+                icon: 'error',
+            }),
+            navigate('login')
+        }
+   
     }
 
 

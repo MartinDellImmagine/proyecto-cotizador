@@ -25,7 +25,7 @@ const Nav = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-link" href="/login">Historial</a>
+              <a className="nav-link" href="/proyecto-cotizador/login">Historial</a>
             </div>
             {
               user && <button onClick={handleLogout} className="btn btn-danger">Logout</button>

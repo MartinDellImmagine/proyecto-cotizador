@@ -17,7 +17,7 @@ import Register from "../pages/Register";
 
 export const router = createBrowserRouter([
     {
-        path:'/',
+        path:'/proyecto-cotizador',
         element: <LayoutPublic />,
         errorElement:<NotFound />,
         children:[

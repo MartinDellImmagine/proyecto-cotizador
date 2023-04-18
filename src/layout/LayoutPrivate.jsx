@@ -6,7 +6,7 @@ const LayoutPrivate = () => {
     const { user } = useUserContext()
     //console.log(user);
 
-    return user ? <Outlet /> : <Navigate to="/" />;
+    return user ? <Outlet /> : <Navigate to="/proyecto-cotizador" />;
 };
 
 export default LayoutPrivate;

@@ -11,7 +11,7 @@ const Login = () => {
     const [password, setPassword] = useState("")
 
     const { user } = useUserContext()
-    useRedirectActiveUser(user, "/dashboard")
+    useRedirectActiveUser(user, "/proyecto-cotizador/dashboard")
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -53,7 +53,7 @@ const Login = () => {
                         <input className="form-control" type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
                     </div>
-                    <p className="text-center"><Link to={'/register'}>if you dont have an account click here</Link><br /></p>
+                    <p className="text-center"><Link to={'/proyecto-cotizador/register'}>if you dont have an account click here</Link><br /></p>
 
                     <button className="btn btn-primary" type="submit">Submit</button>
                 </form>

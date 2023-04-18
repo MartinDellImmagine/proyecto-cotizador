@@ -16,7 +16,6 @@ export const useFetch = (URL) =>{
 
             const data = await res.json()
          
-            
             setData(data)
             
         } catch (error) {

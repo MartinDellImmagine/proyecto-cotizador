@@ -23,11 +23,11 @@ const Register = () => {
                 icon: 'success',
                 text: 'User Register Successfully',
               })
-            console.log(credentialUser);
+            //console.log(credentialUser);
         } catch (error) {
             Swal.fire({
                 icon: 'error',
-                title: 'Login fails',
+                title: 'Register fails',
                 text: `${error}`
               })
         }

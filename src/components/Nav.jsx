@@ -8,7 +8,9 @@ const Nav = () => {
   const { user } = useUserContext();
   const handleLogout =  async ()=> {
     try {
+      
       logOut()
+      
     } catch (error) {
       console.log(error);
     }

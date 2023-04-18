@@ -15,7 +15,7 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log('logenado');
+        console.log('logeando');
         
         try {
             const credentialUser = await login({ email, password })
@@ -24,7 +24,8 @@ const Login = () => {
                 icon: 'success',
                 text: 'Login Success',
               })
-            console.log(credentialUser);
+           // console.log(credentialUser);
+            
         } catch (error) {
             Swal.fire({
                 icon: 'error',
@@ -33,6 +34,9 @@ const Login = () => {
               })
         }
     }
+
+
+    if (user === false) return <></>
     return (
 
 
